@@ -5,9 +5,7 @@ resource "aws_lb" "test" {
   load_balancer_type = var.alb_type
   security_groups    = [aws_security_group.lb_sg.id]
   subnets            = var.subnet_ids
-
-
-  tags = env.tags
+  tags = var.tags
 }
 
 
@@ -15,7 +13,7 @@ resource "aws_security_group" "lb_sg" {
   name        = local.sg_name
   description = local.sg_name
   vpc_id      = var.vpc_id
-  tags = env.tags
+  tags = var.tags
 }
 
 
